@@ -26,14 +26,22 @@ app.get('/', function(req, res){
                     if(err){
                         res.json({"Error: ": err})
                     } else {
-                        res.render('todo.ejs', {todoList: todo, comicData: response.data});
+                        res.render('todo.ejs', { comicData: response.data});
                     }
                 })
+                
     }).catch(function(error){
         res.json({"Error: ": error})
     })
     
 })
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min); 
+  }
+  
 
 
 app.listen(3000, function(){
