@@ -36,11 +36,20 @@ app.get('/', function(req, res){
     
 })
 
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); 
-  }
+function generateRandom(min = 1, max = 2682) {
+
+    let difference = max - min;
+
+    let rand = Math.random();
+
+    rand = Math.floor( rand * difference);
+
+    rand = rand + min;
+
+    return rand;
+}
+
+console.log(generateRandom());
   
 
 
