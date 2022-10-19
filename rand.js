@@ -20,6 +20,8 @@ db.on('error', console.error.bind(console, "MongoDB error connection"))
 
 app.get('/', function(req, res){
     let comicData = {}
+    x= Math.floor(Math.random()*2682)+1
+    console.log(x)
     axios.get('https://xkcd.com/614/info.0.json').then(function(response){
                 Todo.find(function(err, todo){
                     console.log(todo)
@@ -36,21 +38,8 @@ app.get('/', function(req, res){
     
 })
 
-function generateRandom(min = 1, max = 2682) {
-
-    let difference = max - min;
-
-    let rand = Math.random();
-
-    rand = Math.floor( rand * difference);
-
-    rand = rand + min;
-
-    return rand;
-}
-
-console.log(generateRandom());
   
+ 
 
 
 app.listen(3000, function(){
